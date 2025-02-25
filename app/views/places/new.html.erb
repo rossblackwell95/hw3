@@ -1,13 +1,9 @@
 <h1>Add a New Place</h1>
 
-<%= form_with url: "/places", method: "post" do %>
+<form action="/places" method="post">
   <p>
-    <label for="name">Place Name:</label><br>
-    <%= text_field_tag :name %>
+    <label for="name">Name:</label>
+    <input type="text" name="name">
   </p>
-  <p>
-    <%= submit_tag "Create Place" %>
-  </p>
-<% end %>
-
-<p><%= link_to "Back to Places", "/places" %></p>
+  <button>Add to Places</button>
+</form>
