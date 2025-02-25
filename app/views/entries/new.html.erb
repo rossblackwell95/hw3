@@ -1,0 +1,30 @@
+<h1>New Entry for <%= @place.name %></h1>
+
+<%= form_with url: "/places/#{@place.id}/entries", method: "post" do %>
+  <p>
+    <label for="title">Title:</label><br>
+    <%= text_field_tag :title %>
+  </p>
+
+  <p>
+    <label for="description">Description:</label><br>
+    <%= text_area_tag :description %>
+  </p>
+
+  <p>
+    <label for="posted_on">Date:</label><br>
+    <!-- Use date type for HTML5 date picker -->
+    <%= date_field_tag :posted_on %>
+  </p>
+
+  <!-- Hidden field for place_id -->
+  <%= hidden_field_tag :place_id, @place.id %>
+
+  <p>
+    <%= submit_tag "Create Entry" %>
+  </p>
+<% end %>
+
+<p>
+  <%= link_to "Back to Place", "/places/#{@place.id}" %>
+</p>
